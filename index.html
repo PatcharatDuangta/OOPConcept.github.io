@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Example for OOP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        pre {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        code {
+            font-family: "Courier New", Courier, monospace;
+        }
+        .code-block {
+            margin-bottom: 20px;
+        }
+        .language {
+            background-color: #007acc;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 3px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>OOP Code Example in Java, C++, and Python</h1>
+
+    <h2>Java Code:</h2>
+    <div class="code-block">
+        <span class="language">Java</span>
+        <pre><code>
+class Animal {
+    Animal() {
+        System.out.println("create animal");
+    }
+
+    protected void finalize() {
+        System.out.println("delete animal");
+    }
+
+    void sound() {
+        System.out.println("animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    Dog() {
+        System.out.println("dog");
+    }
+
+    @Override
+    protected void finalize() {
+        System.out.println("delete dog");
+    }
+
+    @Override
+    void sound() {
+        System.out.println("dog barks");
+    }
+}
+
+class Cat extends Animal {
+    Cat() {
+        System.out.println("cat");
+    }
+
+    @Override
+    protected void finalize() {
+        System.out.println("delete cat");
+    }
+
+    @Override
+    void sound() {
+        System.out.println("cat meows");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal a = new Animal();
+        Dog d = new Dog();
+        Cat c = new Cat();
+
+        a.sound();
+        d.sound();
+        c.sound();
+
+        a = null;
+        d = null;
+        c = null;
+        System.gc();
+    }
+}
+        </code></pre>
+    </div>
+
+    <h2>C++ Code:</h2>
+    <div class="code-block">
+        <span class="language">C++</span>
+        <pre><code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Animal {
+public:
+    Animal() {
+        cout << "create animal" << endl;
+    }
+    
+    virtual ~Animal() {
+        cout << "delete animal" << endl;
+    }
+
+    virtual void sound() {
+        cout << "animal makes a sound" << endl;
+    }
+};
+
+class Dog : public Animal {
+public:
+    Dog() {
+        cout << "dog" << endl;
+    }
+
+    ~Dog() {
+        cout << "delete dog" << endl;
+    }
+
+    void sound() override {
+        cout << "dog barks" << endl;
+    }
+};
+
+class Cat : public Animal {
+public:
+    Cat() {
+        cout << "cat" << endl;
+    }
+
+    ~Cat() {
+        cout << "delete cat" << endl;
+    }
+
+    void sound() override {
+        cout << "cat meows" << endl;
+    }
+};
+
+int main() {
+    Animal* a = new Animal();
+    Animal* d = new Dog();
+    Animal* c = new Cat();
+
+    a->sound();
+    d->sound();
+    c->sound();
+
+    delete a;
+    delete d;
+    delete c;
+
+    return 0;
+}
+        </code></pre>
+    </div>
+
+    <h2>Python Code:</h2>
+    <div class="code-block">
+        <span class="language">Python</span>
+        <pre><code>
+class Animal:
+    def __init__(self):
+        print("create animal")
+
+    def __del__(self):
+        print("delete animal")
+
+    def sound(self):
+        print("animal makes a sound")
+
+
+class Dog(Animal):
+    def __init__(self):
+        super().__init__()
+        print("dog")
+
+    def __del__(self):
+        print("delete dog")
+
+    def sound(self):
+        print("dog barks")
+
+
+class Cat(Animal):
+    def __init__(self):
+        super().__init__()
+        print("cat")
+
+    def __del__(self):
+        print("delete cat")
+
+    def sound(self):
+        print("cat meows")
+
+
+if __name__ == "__main__":
+    a = Animal()
+    d = Dog()
+    c = Cat()
+
+    a.sound()
+    d.sound()
+    c.sound()
+
+    del a
+    del d
+    del c
+        </code></pre>
+    </div>
+
+    <footer>
+        <p>Prepared for further content explanation and demonstration of OOP principles.</p>
+    </footer>
+
+</body>
+</html>
